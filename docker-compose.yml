@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+
+  app:
+    build: .
+    container_name: zoghbi-cv-app
+    ports:
+      - "8000:8000"
+    environment:
+      - MONGO_URL=mongodb://mongodb:27017
+      - DB_NAME=cvdb
+    depends_on:
+      - mongodb
+    restart: unless-stopped
+
+  mongodb:
+    image: mongo:7.0
+    container_name: zoghbi-cv-mongodb
+    volumes:
+      - mongo_data:/data/db
+    restart: unless-stopped
+
+volumes:
+  mongo_data:

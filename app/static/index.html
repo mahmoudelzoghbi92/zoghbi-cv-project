@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mahmoud Elzoghbi — CV</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+
+        <!-- Header -->
+        <header>
+            <h1>Mahmoud Elzoghbi, Ph.D.</h1>
+            <div class="contact">
+                <span>📧 m.elzoghbi@ci.menofia.edu.eg</span>
+                <span>📞 +86 13214503032 | +201060299466</span>
+                <span>🔗 <a href="https://github.com/elzoghbi1992">GitHub</a></span>
+                <span>🔗 <a href="https://linkedin.com/in/mahmoudelzoghbi1992">LinkedIn</a></span>
+            </div>
+        </header>
+
+        <!-- Summary -->
+        <section>
+            <h2>Summary</h2>
+            <p>Ph.D. in Computer Science from Harbin Institute of Technology (2026),
+            specialising in multiplane security for Software-Defined Networks.
+            Research contributions span intelligent network security, kernel-level
+            programmable data planes (eBPF/XDP), and authentication frameworks,
+            resulting in 3 CCF-B ranked journal articles and 1 CCF-C international
+            conference paper. Seeking a Postdoctoral Researcher position in agentic
+            AI and LLMs for autonomous security enhancement.</p>
+        </section>
+
+        <!-- Employment -->
+        <section>
+            <h2>Employment</h2>
+            <div class="entry">
+                <span class="date">2023–2026</span>
+                <div>
+                    <strong>Ph.D. Candidate</strong> — Harbin Institute of Technology, China
+                </div>
+            </div>
+            <div class="entry">
+                <span class="date">2019–2023</span>
+                <div>
+                    <strong>Assistant Lecturer</strong> — Menoufia University, Egypt
+                </div>
+            </div>
+            <div class="entry">
+                <span class="date">2019–2020</span>
+                <div>
+                    <strong>Network Security Engineer</strong> — Huawei Egypt
+                </div>
+            </div>
+            <div class="entry">
+                <span class="date">2015–2019</span>
+                <div>
+                    <strong>Demonstrator</strong> — Menoufia University, Egypt
+                </div>
+            </div>
+            <div class="entry">
+                <span class="date">2014–2015</span>
+                <div>
+                    <strong>Network Security Engineer</strong> — Tala'ea El Gaish Club
+                </div>
+            </div>
+        </section>
+
+        <!-- Education -->
+        <section>
+            <h2>Education</h2>
+            <div class="entry">
+                <span class="date">2020–2026</span>
+                <div>
+                    <strong>Ph.D. Computer Science</strong> — Harbin Institute of Technology
+                </div>
+            </div>
+            <div class="entry">
+                <span class="date">2017–2019</span>
+                <div>
+                    <strong>M.Sc. Information Technology</strong> — Menoufia University
+                </div>
+            </div>
+            <div class="entry">
+                <span class="date">2010–2014</span>
+                <div>
+                    <strong>B.Sc. Information Technology</strong> — Menoufia University
+                </div>
+            </div>
+        </section>
+
+        <!-- Publications -->
+        <section>
+            <h2>Publications</h2>
+            <div class="entry">
+                <span class="date">2026</span>
+                <div>Kernel-Level LDoS Attack Detection in SDN — <em>Computer Networks</em></div>
+            </div>
+            <div class="entry">
+                <span class="date">2025</span>
+                <div>TokenGuard: SDN Access Management — <em>Computer Communications</em></div>
+            </div>
+            <div class="entry">
+                <span class="date">2024</span>
+                <div>DIS-Guard: SDN Resilience — <em>Computer Networks</em></div>
+            </div>
+            <div class="entry">
+                <span class="date">2024</span>
+                <div>MTLSAuth: Secured Host Discovery — <em>IEEE WCNC</em></div>
+            </div>
+            <div class="entry">
+                <span class="date">2018</span>
+                <div>Lightweight SDN Framework — <em>INFOS 2018</em></div>
+            </div>
+        </section>
+
+        <!-- Skills -->
+        <section>
+            <h2>Skills</h2>
+            <div class="skills-grid">
+                <div><strong>Programming</strong><p>Python, Go, C/C++, Bash, SQL</p></div>
+                <div><strong>DevOps</strong><p>Docker, Kubernetes, GitHub Actions, Jenkins, GitLab CI</p></div>
+                <div><strong>SDN</strong><p>eBPF/XDP, P4, OpenFlow, Ryu, ONOS, Mininet</p></div>
+                <div><strong>ML</strong><p>TensorFlow, PyTorch, scikit-learn, XGBoost</p></div>
+                <div><strong>Security</strong><p>Wireshark, Snort, Suricata, Nessus, Metasploit</p></div>
+                <div><strong>Cloud</strong><p>AWS, Azure, GCP, OpenStack</p></div>
+            </div>
+        </section>
+
+        <!-- Certifications -->
+        <section>
+            <h2>Certifications</h2>
+            <ul>
+                <li>CCNP Security, CCNP R&S, CCNA R&S (Cisco)</li>
+                <li>HCIP Datacom, HCIA Datacom, HCIA R&S (Huawei)</li>
+            </ul>
+        </section>
+
+        <!-- Interaction Buttons -->
+        <section class="interaction">
+            <h2>Was this CV helpful?</h2>
+            <div class="buttons">
+                <button id="likeBtn" onclick="vote('like')">👍 Like</button>
+                <button id="dislikeBtn" onclick="vote('dislike')">👎 Dislike</button>
+            </div>
+            <div class="counts">
+                <span>👍 <span id="likeCount">0</span></span>
+                <span>👎 <span id="dislikeCount">0</span></span>
+            </div>
+        </section>
+
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
