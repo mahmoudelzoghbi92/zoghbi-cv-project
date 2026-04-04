@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: zoghbi-cv-app
-          image: elzoghbidocker/zoghbi-cv:latest
+          image: elzoghbidocker/zoghbi-cv:903a2cc4c0153485e7b091e73a4c55c0d30a521e
           ports:
             - containerPort: 8000
           envFrom:
