@@ -11,6 +11,7 @@ jobs:
   lint:
     name: Lint
     runs-on: ubuntu-latest
+    if: github.actor != 'github-actions[bot]'
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -50,9 +51,13 @@ jobs:
     runs-on: ubuntu-latest
     needs: test
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    permissions:
+      contents: write
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Log in to Docker Hub
         uses: docker/login-action@v3
@@ -65,4 +70,18 @@ jobs:
         with:
           context: .
           push: true
-          tags: elzoghbidocker/zoghbi-cv:latest
+          tags: elzoghbidocker/zoghbi-cv:${{ github.sha }}
+      
+      - name: Update image tag in k8s manifest
+        run: |
+          # Replace the image tag in app.yaml with the new commit SHA
+          sed -i "s|elzoghbidocker/zoghbi-cv:.*|elzoghbidocker/zoghbi-cv:${{ github.sha }}|" k8s/app.yaml
+          
+          # Configure git identity for the commit
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          
+          # Commit and push the updated manifest
+          git add k8s/app.yaml
+          git commit -m "Update image tag to ${{ github.sha }}"
+          git push
