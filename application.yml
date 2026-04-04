@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: zoghbi-cv
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/mahmoudelzoghbi92/zoghbi-cv-project
+    targetRevision: HEAD
+    path: k8s
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: zoghbi-cv
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
