@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: zoghbi-cv-config
+  namespace: zoghbi-cv
+data:
+  MONGO_URL: "mongodb://mongodb-service:27017"
+  DB_NAME: "cvdb"
