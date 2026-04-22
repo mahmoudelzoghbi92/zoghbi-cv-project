@@ -1,0 +1,39 @@
+name: Vault CI/CD Demo
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  id-token: write   # Required for GitHub OIDC token generation
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Authenticate to Vault
+        uses: hashicorp/vault-action@v2
+        id: vault
+        with:
+          url: http://20.203.74.88:8200
+          method: jwt
+          role: github-actions
+          jwtGithubAudience: https://github.com/mahmoudelzoghbi92
+          secrets: |
+            approc/data/ci/config docker_hub_token | DOCKER_HUB_TOKEN ;
+            approc/data/ci/config docker_hub_username | DOCKER_HUB_USERNAME
+
+      - name: Login to Docker Hub
+        run: |
+          echo "${{ env.DOCKER_HUB_TOKEN }}" | \
+          docker login -u "${{ env.DOCKER_HUB_USERNAME }}" --password-stdin
+
+      - name: Build and Push image
+        run: |
+          docker build -t elzoghbidocker/zoghbi-cv:latest .
+          docker push elzoghbidocker/zoghbi-cv:latest
